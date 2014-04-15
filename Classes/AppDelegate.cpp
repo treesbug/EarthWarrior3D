@@ -3,6 +3,7 @@
 #include "HelloWorldScene.h"
 #include "LoadingScene.h"
 #include "SimpleAudioEngine.h"
+
 USING_NS_CC;
 
 AppDelegate::AppDelegate() {
@@ -35,9 +36,12 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // set FPS. the default value is 1.0/60 if you don't call this
     director->setAnimationInterval(1.0 / 60);
 
+
+
     // create a scene. it's an autorelease object
     //auto scene = LoadingScene::createScene();
     auto scene = MainMenuScene::createScene();
+
     //auto scene = HelloWorld::createScene();
     // run
     director->runWithScene(scene);

@@ -31,13 +31,13 @@ void AirCraft::die()
 	{
 		log("IsGameOver::HelloWorld %d",helloworld->isGameOver());
 		helloworld->setScore(score+=_score);
-	} 
-    std::stringstream ss;
-    std::string str;
-    ss<<score;
-    ss>>str;
-    const char *p = str.c_str();
-    helloworld->getScoreLabel()->setString(p);
+		std::stringstream ss;
+		std::string str;
+		ss<<score;
+		ss>>str;
+		const char *p = str.c_str();
+		helloworld->getScoreLabel()->setString(p);
+	}
     _alive = false;
     auto scale = ScaleTo::create(0.1, 1.2);
     auto scaleBack = ScaleTo::create(0.1, 1);
