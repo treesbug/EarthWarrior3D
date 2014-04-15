@@ -51,7 +51,7 @@ class Sprite3D : public cocos2d::Node
 public:
     static Sprite3D* create(const std::string &modelPath, const std::string &texturePath="");
     void setOutline(float width, cocos2d::Color3B color);
-
+	
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
     void listenBackToForeground(cocos2d::EventCustom* event);
 #endif
@@ -78,7 +78,7 @@ protected:
     cocos2d::Texture2D *_texture;
     cocos2d::CustomCommand _customCommand;
     
-    bool _outLine = false;
+    bool _outLine;
     float _outLineWidth;
     cocos2d::Color3B _outlineColor;
     cocos2d::GLProgram *_outlineShader;

@@ -22,12 +22,13 @@ public:
     virtual bool init();
     CREATE_FUNC(MainMenuScene);
     void update(float dt);
+	MainMenuScene():pRate(3.1415926f/2){}
 private:
     void startgame(cocos2d::Ref* sender);
     void license(cocos2d::Ref* sender);
     void credits(cocos2d::Ref* sender);
     Plane* plane;
-    float pRate = 3.1415926/2;
+    float pRate;
     void startgame_callback();
     void license_callback();
     void credits_callback();

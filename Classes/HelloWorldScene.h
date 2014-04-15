@@ -19,14 +19,18 @@ public:
     CREATE_FUNC(HelloWorld);
     
     ~HelloWorld();
+	HelloWorld():score(0){}
 
-    
+    bool isGameOver(){return gameOver; }
 private:
     CC_SYNTHESIZE(cocos2d::ProgressTimer*, hpView, HPView);
     CC_SYNTHESIZE(int, score, Score)
     CC_SYNTHESIZE(cocos2d::LabelAtlas*, scoreLabel, ScoreLabel);
     void increaseScore(float dt);
     void ShowGameOver(Ref* pObj);
+
+private:
+	bool gameOver;
     
 };
 

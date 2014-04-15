@@ -16,6 +16,9 @@ USING_NS_CC;
 class AirCraft : public GameEntity
 {
 public:
+	AirCraft():_alive(true),_score(0)
+	{
+	}
     virtual bool hurt(float damage);
     virtual void die();
     void shoot();
@@ -24,7 +27,7 @@ public:
     virtual void move(float y, float dt);
     virtual void reset();
 protected:
-    bool _alive = true;
+    bool _alive;
     float _HP;
     int _score;
 };

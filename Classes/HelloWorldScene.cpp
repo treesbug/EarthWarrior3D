@@ -86,17 +86,20 @@ bool HelloWorld::init()
     this->addChild(scoreLabel);
 
     this->schedule(schedule_selector(HelloWorld::increaseScore), (float)1/10);
-    //this->addChild(scoreLabel);
+
+	//this->addChild(scoreLabel);
 
     
     NotificationCenter::getInstance()->destroyInstance();
     NotificationCenter::getInstance()->addObserver(this,callfuncO_selector(HelloWorld::ShowGameOver),"ShowGameOver",NULL);
 
+	
+	gameOver = false;
     return true;
 }
 
 void HelloWorld::increaseScore(float dt){
-    this->score++;
+	this->score++;
     std::stringstream ss;
     std::string str;
     ss<<score;
@@ -110,6 +113,10 @@ void HelloWorld::ShowGameOver(Ref* pObj)
     //unschedule(schedule_selector(HelloWorld::increaseScore));
 //    BulletController::reset();
 //    EnemyController::reset();
+	gameOver = true;
+	auto helloworld = (HelloWorld*)Director::getInstance()->getRunningScene()->getChildByTag(100);
+	helloworld->unschedule(schedule_selector(HelloWorld::increaseScore));
+	
     auto gameoverlayer=GameOverLayer::create(score);
     addChild(gameoverlayer,10);
 }

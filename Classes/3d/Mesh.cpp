@@ -4,6 +4,7 @@
 #include <fstream>
 #include <iostream>
 #include <sstream>
+#include <cctype>
 
 #include "cocos2d.h"
 #include "../cocos2d/cocos/2d/ccMacros.h"
@@ -212,9 +213,15 @@ void ObjMeshParser::parse(std::istream &streamIn, ObjMeshData &meshData)
                     }
                 }
                 else
-                {
+                {   
+					/*std::string test;
+					stringstream>>test;
+					std::cout<<"test= "<<test<<std::endl;
+					*/
                     if(!stringstream.eof())
                         logParseError(line_number,line);
+						
+					
                 }
 
             }

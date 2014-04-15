@@ -27,7 +27,11 @@ void AirCraft::die()
     EffectManager::createBigExplosion(getPosition());
     auto helloworld = (HelloWorld*)Director::getInstance()->getRunningScene()->getChildByTag(100);
     int score = helloworld->getScore();
-    helloworld->setScore(score+=_score);
+	if (!helloworld->isGameOver())
+	{
+		log("IsGameOver::HelloWorld %d",helloworld->isGameOver());
+		helloworld->setScore(score+=_score);
+	} 
     std::stringstream ss;
     std::string str;
     ss<<score;

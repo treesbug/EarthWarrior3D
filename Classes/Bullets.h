@@ -43,14 +43,17 @@ public:
     void update(float dt);
     CC_SYNTHESIZE(GameEntity*, _target, Target)
     virtual void reset();
+	Missile():_accel(15),_turnRate(180),_yRotSpeed(1400),_yRotation(0),_left(false),_velocity(0),_target(nullptr)
+	{
+	}
 protected:
-    float _accel = 15;
-    float _turnRate = 180;
+    float _accel;
+    float _turnRate;
     //float _maxSpeed = 100;
-    float _yRotSpeed = 1400;
-    float _yRotation = 0;
-    bool _left = false;
-    float _velocity = 0;
+    float _yRotSpeed;
+    float _yRotation;
+    bool _left;
+    float _velocity;
 };
 
 #endif /* defined(__Moon3d__Bullet__) */

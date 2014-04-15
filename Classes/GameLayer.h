@@ -22,9 +22,12 @@ public:
     CREATE_FUNC(GameLayer);
     static bool isDie;
     //virtual void onEnter();
+	GameLayer():xScroll(0.0f),speed(-60.0f),_elapsed(20),_bossOut(false)
+	{
+	}
 protected:
-    float xScroll = 0.0f;
-    float speed = -60.0f;
+    float xScroll;
+    float speed;
     Sprite *_spr;
     Sprite *_cloud;
     Player *_player;
@@ -37,8 +40,8 @@ protected:
 
     //QuadTree *container;
     void gameMaster(float dt);
-    float _elapsed = 20; //testing purpose, this was set to near boss timer
-    bool _bossOut = false;
+    float _elapsed; //testing purpose, this was set to near boss timer
+    bool _bossOut;
     
 private:
     void removeBulletAndEnmeys(float dt);

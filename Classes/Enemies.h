@@ -40,6 +40,9 @@ public:
 class BigDude : public AirCraft
 {
 public:
+	BigDude():_turnRate(50)
+	{
+	}
     CREATE_FUNC(BigDude);
     bool init();
     virtual void reset();
@@ -54,7 +57,7 @@ protected:
     Sprite* muzzle1;
     Sprite* muzzle2;
     Point _targetPos;
-    float _turnRate = 50;
+    float _turnRate;
 };
 
 class Boss : public Fodder

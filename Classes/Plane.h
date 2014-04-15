@@ -17,17 +17,18 @@ class Plane :public GameEntity{
 public:
     CREATE_FUNC(Plane);
     bool init();
+	Plane();
 private:
-    float pRate = 3.1415926/2;
-    float originX = -15.0f;
-    float originY = 159.0f;
-    float originZ = 9.0f;
-    const float pXW = 1.1f;
-    const float pYW = 5.0f;
-    const float pZW = 1.0f;
-    const float pXA = 1.0f;
-    const float pYA = 10.0f;
-    const float pZA = 7.0f;
+    float pRate;
+    float originX;
+    float originY;
+    float originZ;
+    const float pXW;
+    const float pYW ;
+    const float pZW ;
+    const float pXA ;
+    const float pYA ;
+    const float pZA ;
     
     void update(float dt);
 };

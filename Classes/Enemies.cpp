@@ -236,7 +236,10 @@ void BigDude::fall(){
     EffectManager::createBigExplosion(getPosition());
     auto helloworld = (HelloWorld*)Director::getInstance()->getRunningScene()->getChildByTag(100);
     int score = helloworld->getScore();
-    helloworld->setScore(score+=_score);
+	if (!helloworld->isGameOver())
+	{
+		helloworld->setScore(score+=_score);
+	}
     std::stringstream ss;
     std::string str;
     ss<<score;
@@ -415,7 +418,10 @@ void Boss::dying()
 void Boss::dead(){
     auto helloworld = (HelloWorld*)Director::getInstance()->getRunningScene()->getChildByTag(100);
     int score = helloworld->getScore();
-    helloworld->setScore(score+=_score);
+	if (!helloworld->isGameOver())
+	{
+		 helloworld->setScore(score+=_score);
+	}
     std::stringstream ss;
     std::string str;
     ss<<score;

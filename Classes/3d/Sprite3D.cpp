@@ -14,7 +14,13 @@ using namespace cocos2d;
 #define STRINGIFY(A)  #A
 //#include "../Shaders/TexturedLighting.es2.vert.h"
 #include "Textured.es2.vert.h"
+
+#ifdef CC_PLATFORM_WIN32
+#include "Textured.es2.frag.windows.h"
+#else
 #include "Textured.es2.frag.h"
+#endif
+
 #include "Colored.es2.frag.h"
 
 Sprite3D* Sprite3D::create(const std::string &modelPath, const std::string &texturePath)
@@ -52,6 +58,8 @@ Sprite3D::~Sprite3D()
 bool Sprite3D::init(const std::string &modelPath, const std::string &texturePath)
 {
     auto model = MeshCache::getInstance()->addMesh(modelPath);// new Mesh(modelPath);
+
+
     if( texturePath.size()) {
         setTextureName(texturePath);
     }

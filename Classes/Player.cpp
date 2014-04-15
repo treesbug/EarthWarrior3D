@@ -5,6 +5,7 @@
 //  Created by Hao Wu on 2/27/14.
 //
 //
+#include <algorithm>
 
 #include "Player.h"
 #include "Bullets.h"
@@ -16,7 +17,7 @@
 #include "GameLayer.h"
 #include "ParticleManager.h"
 #define visible_size_macro Director::getInstance()->getVisibleSize()
-#define origin_point Director::getInstance()->getVisibleOrigin();
+#define origin_point Director::getInstance()->getVisibleOrigin()
 
 bool Player::init()
 {
@@ -56,8 +57,9 @@ bool Player::init()
 }
 void Player::update(float dt)
 {
-    float smoothedAngle =fmin(fmax(targetAngle*(1-dt*returnSpeed*(rollReturnThreshold-fabsf(targetAngle)/maxRoll)),-maxRoll),maxRoll);
+	float smoothedAngle = std::min(std::max(targetAngle*(1-dt*returnSpeed*(rollReturnThreshold-fabsf(targetAngle)/maxRoll)),-maxRoll),maxRoll);
     setRotation3D(Vertex3F(fabsf(smoothedAngle)*0.15,smoothedAngle, 0));
+	
     targetAngle = getRotation3D().y;
 }
 bool Player::onTouchBegan(Touch *touch, Event *event)

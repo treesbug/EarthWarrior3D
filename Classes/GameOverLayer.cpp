@@ -32,7 +32,8 @@ GameOverLayer* GameOverLayer::create(int score)
 
 bool GameOverLayer::init()
 {
-    if (!LayerColor::initWithColor(Color4B(255, 255, 255, 50))) {
+	
+	if (!LayerColor::initWithColor(Color4B(255, 255, 255, 50))) {
         return false;
     }
     
@@ -74,6 +75,8 @@ bool GameOverLayer::init()
     
     _eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
     
+
+
     return true;
 }
 
